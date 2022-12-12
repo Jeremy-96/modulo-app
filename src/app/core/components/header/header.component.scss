@@ -1,0 +1,109 @@
+header {
+  padding: 0 2.5rem;
+  width: 100vw;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--black-primary-clr);
+  .title {
+    font-size: 2.5rem;
+    color:var(--white-primary-clr)
+  }
+  .navbar {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black-primary-clr);
+    transition: width 300ms ease-in-out;
+    .items {
+      width:100%;
+      height: 90%;
+      display:none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      list-style-type: none;
+      &__link {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: auto;
+        margin: 1rem 0;
+        font-size: 2rem;
+        color: var(--white-primary-clr);
+        cursor: pointer;
+        a {
+          letter-spacing: 0.2rem;
+        }
+      }
+      &__link > a::after {
+        content: "";
+        width: 0%;
+        height: 0.5rem;
+        background: var(--red-primary-clr);
+        transition: width 250ms ease-in-out;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      &__link:hover > a::after {
+        width: 50%;
+      }
+    }
+  }
+  .toggler {
+    z-index: 10;
+    position: relative;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    .line {
+      display: block;
+      width: 100%;
+      height: 0.25rem;
+      background: var(--white-primary-clr);
+      border-radius: 0.5rem;
+      transition: all 300ms ease-in-out;
+    }
+  }
+}
+.toggle .navbar {
+  width: 50%;
+}
+.toggle .toggler > .line {
+  background: var(--red-primary-clr);
+}
+.toggle .toggler > .one {
+  transform: translateY(9px) rotate(-45deg);
+}
+.toggle .toggler > .two {
+  opacity: 0%;
+}
+.toggle .toggler > .three {
+  transform: translateY(-9px) rotate(45deg);
+}
+.toggle .navbar > .items {
+  display: flex;
+}
+
+// Tablet breakpoint
+@media screen and (max-width: 1024px){
+  .toggle .navbar {
+    width: 100%;
+  }
+}

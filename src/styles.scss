@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --white-primary-clr:#f1f1f1;
+  --black-primary-clr:#1a1a1a;
+  --red-primary-clr:#EE2B47;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+body {
+  max-width: 1600px;
+  background-color: #f1f1f1;
+  font-family: 'Quicksand', sans-serif;
+  font-weight:400;
+  overflow-x: hidden;
+}
+h1 {
+  font-weight: 700;
+}
