@@ -1,17 +1,20 @@
 <header>
-  <h1 class="title">{{ title | titlecase }}</h1>
   <nav class="navbar" role="navigation">
     <ul class="items">
-      <li class="items__link"><a router-link="/informations">À propos</a></li>
-      <li class="items__link"><a router-link="/services">Services</a></li>
-      <li class="items__link"><a router-link="/contact">Contact</a></li>
+      <li class="items__link"><button (click)="onGoToHome()">Home</button></li>
+      <li class="items__link"><button (click)="onAllUsers()">L'équipe</button></li>
+      <li class="items__link"><button>Informations</button></li>
+      <li class="items__link"><button>Contact</button></li>
     </ul>
   </nav>
+
   <button class="toggler" (click)="onToggleMenu()">
     <span class="line one"></span>
     <span class="line two"></span>
     <span class="line three"></span>
   </button>
+  
+  <img [src]="imageUrl" [alt]="imageAlt" class="logo">
 </header>
 
 

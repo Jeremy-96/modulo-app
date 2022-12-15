@@ -1,0 +1,44 @@
+<section class="card">
+  <h2 class="card__title">INSCRIPTION</h2>
+  <form class="card__form" [formGroup]="newUserForm">
+    <div class="form-group">
+      <label for="picture" class="picture-label">Url photo</label>
+      <input id="picture" type="text" formControlName="picture">
+    </div>
+    <div class="form-group">
+      <label for="firstName">Prénom</label>
+      <input id="firstName" type="text" formControlName="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Nom</label>
+      <input id="lastName" type="text" formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email">
+    </div>
+    <div class="action-buttons">
+      <button type="submit" (click)="onSubmitForm()" [disabled]="newUserForm.invalid">S'inscrire</button>
+    </div>
+    <p class="indicator" *ngIf="userPreview$ | async"><mark>Scroll pour visualiser</mark></p>
+  </form>
+</section>
+
+<section class="preview" *ngIf="userPreview$ | async as user">
+  <div class="preview__card">
+    <img class="img" [src]="user.picture" [alt]="user.firstName">
+    <div class="names">
+      <h2>Noms</h2>
+      <p>{{ user.firstName }}</p>
+      <p>{{ user.lastName }}</p>
+    </div>
+    <div class="email">
+      <h2>Email</h2>
+      <p>{{ user.email }}</p>
+    </div>
+    <div class="register">
+      <h2>Date d'inscription</h2>
+      <p>Inscription le {{ user.registerDate | date:"shortDate" }}</p>
+    </div>
+  </div>
+</section>

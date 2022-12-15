@@ -7,22 +7,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  title!: string;
-  value!: boolean;
+  imageUrl!: string;
+  imageAlt!: string;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.value = false;
-    if(this.value != false){
-      this.title = "Thonon J.";
-    }else{
-      this.title = "Modulo."
-    }
+    this.imageAlt = 'Modulo logo';
+    this.imageUrl = './assets/images/modulo_logo.svg';
   }
 
   onToggleMenu(){
     const header = document.querySelector("header");
     header?.classList.toggle("toggle");
+  }
+
+  onGoToHome(){
+    this.router.navigateByUrl('');
+  }
+
+  onAllUsers(){
+    this.router.navigateByUrl('/users');
   }
 }
