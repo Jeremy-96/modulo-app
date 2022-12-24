@@ -1,51 +1,27 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 
 import { User } from '../models/User.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  users: User[] = [
-    {
-      id: 1,
-      picture: "https://jeremythonon.be/img/me.1b4c8768.jpg",
-      firstName: "Jérémy",
-      lastName: "Thonon",
-      email: "jeremythonon96@hotmail.com",
-      registerDate: new Date(),
-    },
-    {
-      id: 2,
-      picture: "https://www.fredzone.org/wp-content/uploads/2022/05/eddie_murphy_meilleurs_films-scaled.webp",
-      firstName: "Eddy",
-      lastName: "Murphy",
-      email: "eddy.m@gmail.com",
-      registerDate: new Date(),
-    },
-    {
-      id: 3,
-      picture: "https://resize.elle.fr/portrait_1280/var/plain_site/storage/images/people/la-vie-des-people/news/tom-cruise-sa-derniere-apparition-interpelle-ses-fans-3966827/95602269-1-fre-FR/Tom-Cruise-sa-derniere-apparition-interpelle-ses-fans.jpg",
-      firstName: "Tom",
-      lastName: "Cruise",
-      email: "topgun.maverick@skynet.com",
-      registerDate: new Date(),
-    },
-  ];
+  users: User[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getAllUsers(){
-    return this.users;
+  getAllUsers(): Observable<User[]>{
+    return this.http.get<User[]>('http://localhost:3000/users');
   }
 
+  getUserById(userId: number): Observable<User> {
+    return this.http.get<User>(`http://localhost:3000/users/${userId}`);
+  } 
+
   createUser(formValue: { picture: string, firstName: string, lastName: string, email: string }): void {
-    const user: User = {
-      ...formValue,
-      id: this.users[this.users.length - 1].id + 1,
-      registerDate: new Date()
-    };
-    this.users.push(user);
+    
   }
 }

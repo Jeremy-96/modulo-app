@@ -1,5 +1,5 @@
 <div class="user-list">
-  <div class="user-list__card" *ngFor="let user of users">
+  <div class="user-list__card" *ngFor="let user of users$ | async">
     <img [src]="user.picture" [alt]="user.firstName">
 
     <div class="names">
@@ -13,9 +13,6 @@
       <p>{{ user.email  }}</p>
     </div>
 
-    <div class="register">
-      <h3>Membre depuis :</h3>
-      <p>{{ user.registerDate | date: 'mediumDate' }}</p>
-    </div>
+    <button (click)="onViewUser()">Voir le profil {{ user.id }}</button>
   </div>
 </div>

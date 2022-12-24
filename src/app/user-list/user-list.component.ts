@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { User } from '../models/User.model';
 import { UsersService } from '../services/users.service';
 
@@ -8,12 +10,19 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
+  @Input() user!: User;
 
-  users!: User[];
+  users$!: Observable<User[]>;
+  user$!: Observable<User>;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.users = this.usersService.getAllUsers();
+    this.users$ = this.usersService.getAllUsers();
+  }
+
+  onViewUser(){
+    this.router.navigateByUrl(`/users/${this.user.id}`);
   }
 }

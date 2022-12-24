@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -23,10 +24,21 @@ export class HeaderComponent implements OnInit {
   }
 
   onGoToHome(){
-    this.router.navigateByUrl('');
+    const header = document.querySelector("header");
+    header?.classList.remove("toggle");
+    this.router.navigateByUrl("")
+    
   }
 
   onAllUsers(){
+    const header = document.querySelector("header");
+    header?.classList.remove("toggle");
     this.router.navigateByUrl('/users');
+  }
+
+  onGoToCreate(){
+    const header = document.querySelector("header");
+    header?.classList.remove("toggle");
+    this.router.navigateByUrl('/signup');
   }
 }

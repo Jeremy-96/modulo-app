@@ -33,6 +33,9 @@ button {
   background: transparent;
   font-family: 'Quicksand', sans-serif;
   font-weight:400;
+  &:hover {
+    cursor: pointer;
+  }
 }
 app-root{
   height: 100%;

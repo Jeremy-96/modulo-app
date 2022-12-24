@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "picture": "https://jeremythonon.be/img/me.1b4c8768.jpg",
+      "firstName": "Jérémy",
+      "lastName": "Thonon",
+      "email": "jeremythonon96@hotmail.com",
+      "registerDate": "11/11/2022"
+    },
+    {
+      "id": 2,
+      "picture": "https://www.fredzone.org/wp-content/uploads/2022/05/eddie_murphy_meilleurs_films-scaled.webp",
+      "firstName": "Eddy",
+      "lastName": "Murphy",
+      "email": "eddy.m@gmail.com",
+      "registerDate": "09/12/2022"
+    },
+    {
+      "id": 3,
+      "picture": "https://resize.elle.fr/portrait_1280/var/plain_site/storage/images/people/la-vie-des-people/news/tom-cruise-sa-derniere-apparition-interpelle-ses-fans-3966827/95602269-1-fre-FR/Tom-Cruise-sa-derniere-apparition-interpelle-ses-fans.jpg",
+      "firstName": "Tom",
+      "lastName": "Cruise",
+      "email": "topgun.maverick@skynet.com",
+      "registerDate": "10/12/2022"
+    }
+  ]
+}

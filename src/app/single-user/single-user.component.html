@@ -1,0 +1,16 @@
+<section>
+  <div class="user-card" *ngIf="user$ | async as user">
+    <img [src]="user.picture" [alt]="user.firstName">
+
+    <div class="names">
+      <h2>Noms</h2>
+      <p>Nom: {{ user.firstName  }}</p>
+      <p>Prénom: {{user.lastName }}</p>
+    </div>
+
+    <div class="email">
+      <h2>Email</h2>
+      <p>{{ user.email  }}</p>
+    </div>
+  </div>
+</section>

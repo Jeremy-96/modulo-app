@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { User } from '../models/User.model';
 import { UsersService } from '../services/users.service';
 
@@ -43,9 +43,7 @@ export class NewUserComponent implements OnInit {
     )
   }
 
-  onSubmitForm(){
-    this.usersServices.createUser(this.newUserForm.value);
-    this.router.navigateByUrl("/users");
-  }
+  onSubmitForm() {}
+
 
 }

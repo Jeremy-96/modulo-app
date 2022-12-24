@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,8 +7,9 @@ import { CoreModule } from './core/core.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewUserComponent } from './new-user/new-user.component';
-import { AuthUserComponent } from './auth-user/auth-user.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SingleUserComponent } from './single-user/single-user.component';
 
 
 @NgModule({
@@ -16,15 +17,16 @@ import { UserListComponent } from './user-list/user-list.component';
     AppComponent,
     LandingPageComponent,
     NewUserComponent,
-    AuthUserComponent,
     UserListComponent,
+    SingleUserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
